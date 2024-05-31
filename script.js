@@ -1,26 +1,30 @@
-    document.getElementById('werpdobbelstenen').addEventListener('click', werpDobbelstenen);
+document.getElementById('werpdobbelstenen').addEventListener('click', werpDobbelstenen);
 
-// functie zorgt ervoor dat de knop wordt bestuurd met het klikken erop. 
+// functie bestuurt knop 
 function werpDobbelstenen() {
 
-    // hier wordt een toevalsgetal tussen van 1 t/m 6 gegenereerd en vervolgens opgeslagen in het variabele dobbelSteen. 
+    // Getal tussen van 1 t/m 6 gegenereerd en opgeslagen als dobbelSteen. 
     let dobbelSteen1 = Math.ceil(Math.random() * 6);
     let dobbelSteen2 = Math.ceil(Math.random() * 6);
         
+    // Kijken eerst op console om te checken of het werk
     console.log('Eerste dobbelsteen: ' + dobbelSteen1);
     console.log('Tweede dobbelsteen: ' + dobbelSteen2);
 
+    // De Array haalt plaatjes op 
     let plaatjesArray = ['one.png','two.png','three.png','four.png','five.png','six.png'];
 
+    // dobbelstenen worden aan de plaatjes gekoppeld
     let dobbelsteenAfbeelding1 = plaatjesArray[dobbelSteen1 - 1];
     let dobbelsteenAfbeelding2 = plaatjesArray[dobbelSteen2 - 1];
 
+    // Haalt de afbeeldingen op
     document.querySelectorAll("img")[0].src = 'images/' + dobbelsteenAfbeelding1;
     document.querySelectorAll("img")[1].src = 'images/' + dobbelsteenAfbeelding2;
  
     if (dobbelSteen1 == 1 && dobbelSteen2 ==2 || dobbelSteen1 == 2 && dobbelSteen2 == 1){
         console.log("mex")
-        document.querySelector('h1').textContent = "Gefeliciteerd! Je hebt mex gegooid :)"
+        document.querySelector('h1').textContent = "Gefeliciteerd! Je hebt mex gegooid :)" //Als er mex is gegooid
     }
     else if (dobbelSteen1 > dobbelSteen2) { //Als de 1e groter is dan de 2e
         console.log(dobbelSteen1 + " " + dobbelSteen2) //De spatie om te zorgen dat ze niet bij elkaar optellen maar naast elkaar komen (Erik)
@@ -37,4 +41,5 @@ function werpDobbelstenen() {
 
 }
 
+// Aanroepen van de functie
 werpDobbelstenen();
